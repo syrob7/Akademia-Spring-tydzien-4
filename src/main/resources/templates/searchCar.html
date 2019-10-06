@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Search Car</title>
+</head>
+<body>
+<h1>Search Car By Id</h1>
+<form th:action="@{/getCarById}" th:object="${car}" method="get">
+    <table border="1">
+        <tr>
+            <td><label th:text="#{msg.Id}" /></td>
+            <td><input type="text" th:field="*{carId}"/></td>
+            <span th:if="${#fields.hasErrors('carId')}" th:errors="*{carId}">Błędne dane</span>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Submit" /></td>
+        </tr>
+    </table>
+</form>
+
+<div>
+    <p>
+        <a th:href="@{/home}" th:text="#{msg.Home}" />
+    </p>
+</div>
+</body>
+</html>

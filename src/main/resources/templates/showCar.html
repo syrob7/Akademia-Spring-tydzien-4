@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Car Details</title>
+</head>
+<body>
+<h1>Car Details</h1>
+<form th:action="@{/home}" th:object="${car}" method="get">
+    <table border="1">
+        <tr>
+            <td><label th:text="#{msg.Mark}" /></td>
+            <td><input type="text" th:field="*{mark}" th:readonly="true" /></td>
+        </tr>
+        <tr>
+            <td><label th:text="#{msg.Model}" /></td>
+            <td><input type="text" th:field="*{model}" th:readonly="true" /></td>
+        </tr>
+        <tr>
+            <td><label th:text="#{msg.Color}" /></td>
+            <td><input type="text" th:field="*{color}" th:readonly="true" /></td>
+        </tr>
+    </table>
+</form>
+
+<div>
+    <p>
+        <a th:href="@{/home}" th:text="#{msg.Home}" />
+    </p>
+</div>
+</body>
+</html>

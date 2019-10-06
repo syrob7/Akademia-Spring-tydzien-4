@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Cars List</title>
+</head>
+<body>
+<h1>Cars List</h1>
+<table border="1">
+    <thead>
+    <tr>
+        <th th:text="#{msg.Id}" />
+        <th th:text="#{msg.Mark}" />
+        <th th:text="#{msg.Model}" />
+        <th th:text="#{msg.Color}" />
+        <th th:text="#{msg.DeleteCar}" />
+        <th th:text="#{msg.ChangeCarColor}" />
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="car : ${cars}">
+        <td th:text="${car.getCarId()}" />
+        <td th:text="${car.mark}" />
+        <td th:text="${car.model}" />
+        <td th:text="${car.getColor().name()}" />
+        <td><a th:href="@{/delete/{id}(id=${car.getCarId()})}" th:text="#{msg.DeleteCar}"></a></td>
+        <td><a th:href="@{/modifyCarColor/{id}(id=${car.getCarId()})}" th:text="#{msg.ChangeCarColor}"></a></td>
+    </tr>
+    </tbody>
+</table>
+<div>
+    <p>
+        <a th:href="@{/home}" th:text="#{msg.Home}" />
+    </p>
+</div>
+</body>
+</html>

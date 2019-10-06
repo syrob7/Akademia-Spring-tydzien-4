@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Obsługa samochodów</title>
+</head>
+<body>
+	<table>
+		<tr>
+			<td><a th:href="@{/add-car}" th:text="#{msg.AddCar}"/></td> <td>Dodaj samochód</td>
+		</tr>
+		<tr>
+			<td><a th:href="@{/list}" th:text="#{msg.ListAllCars}"/></td> <td>Wyświetl wszystkie samochody</td>
+		</tr>
+		<tr>
+			<td><a th:href="@{/searchCar}" th:text="#{msg.SearchCar}"/></td> <td>Szukaj samochodu</td>
+		</tr>
+	</table>
+</body>
+</html>

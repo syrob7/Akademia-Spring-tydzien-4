@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add Car</title>
+</head>
+<body>
+    <h1>Add Car</h1>
+    <form th:action="@{/save-new-car}" th:object="${car}" method="post">
+        <table border="1">
+            <tr>
+                <td><label th:text="#{msg.Mark}" /></td>
+                <td><input type="text" th:field="*{mark}" /></td>
+            </tr>
+            <tr>
+                <td><label th:text="#{msg.Model}" /></td>
+                <td><input type="text" th:field="*{model}" /></td>
+            </tr>
+            <tr>
+                <td><label th:text="#{msg.Color}" /></td>
+                <td>
+                    <select name="color">
+                        <option th:each="colorOpt : ${T(pl.akademiaspring.task4.model.Color).values()}" th:value="${colorOpt}" th:text="${colorOpt.displayValue}"></option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="Submit" /></td>
+            </tr>
+        </table>
+    </form>
+
+    <div>
+        <p>
+            <a th:href="@{/home}" th:text="#{msg.Home}" />
+        </p>
+    </div>
+</body>
+</html>

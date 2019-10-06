@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Change Car Color</title>
+</head>
+<body>
+    <h1>Change Car Color</h1>
+    <form th:action="@{/updateCar}" th:object="${car}" method="post">
+        <table border="1">
+            <tr>
+                <td><label th:text="#{msg.Id}" /></td>
+                <td><input type="text" th:field="*{carId}" /></td>
+            </tr>
+            <tr>
+                <td><label th:text="#{msg.Color}" /></td>
+                <td>
+                    <select name="color">
+                        <option th:each="colorOpt : ${T(pl.akademiaspring.task4.model.Color).values()}"
+                                th:value="${colorOpt}"
+                                th:selected="(${colorOpt} == *{color})"
+                                th:text="${colorOpt.displayValue}"></option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="Submit" /></td>
+            </tr>
+        </table>
+    </form>
+<div>
+    <p>
+        <a th:href="@{/home}" th:text="#{msg.Home}" />
+    </p>
+</div>
+</body>
+</html>
